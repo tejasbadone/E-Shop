@@ -31,6 +31,7 @@ dependencies:
   google_fonts: ^2.1.0
   velocity_x: ^3.3.0
   http: ^0.13.3
+  pay: ^1.0.5
 
 
 dev_dependencies:
@@ -50,6 +51,7 @@ flutter:
   assets:
     - assets/images/
     - assets/files/
+    - assets/
 
   # To add assets to your application, add an assets section, like this:
 
