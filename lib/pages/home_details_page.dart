@@ -26,7 +26,7 @@ class Details extends StatelessWidget {
               catelog: catelog,
             ).wh(150, 50)
           ],
-        ).p32(),
+        ).p20(),
       ),
       body: SafeArea(
         bottom: false,
@@ -38,30 +38,33 @@ class Details extends StatelessWidget {
             ).h32(context),
             Expanded(
               child: VxArc(
-                height: 30.0,
+                height: 20.0,
                 arcType: VxArcType.CONVEY,
                 edge: VxEdge.TOP,
                 child: Container(
+                  padding: EdgeInsets.only(top: 40),
                   color: context.cardColor,
                   width: context.screenWidth,
-                  child: Column(
-                    children: [
-                      catelog.name.text.xl4
-                          .color(context.accentColor)
-                          .bold
-                          .make(),
-                      catelog.desc.text
-                          .textStyle(context.captionStyle)
-                          .xl
-                          .make(),
-                      10.heightBox,
-                      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse augue ipsum, auctor eget velit eu, congue gravida metus. Aenean scelerisque blandit turpis, eget vehicula tortor fringilla ac. Sed imperdiet imperdiet tellus at vestibulum. Aliquam lacinia euismod diam, sed lobortis ligula euismod eget. In sem enim, dignissim ut metus ut, lacinia.'
-                          .text
-                          .textStyle(context.captionStyle)
-                          .make()
-                          .p32()
-                    ],
-                  ).py64(),
+                  child: SingleChildScrollView(
+                    child: Column(
+                      children: [
+                        catelog.name.text.xl4
+                            .color(context.accentColor)
+                            .bold
+                            .make(),
+                        catelog.desc.text
+                            .textStyle(context.captionStyle)
+                            .xl
+                            .make(),
+                        10.heightBox,
+                        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse augue ipsum, auctor eget velit eu, congue gravida metus. Aenean scelerisque blandit turpis, eget vehicula tortor fringilla ac. Sed imperdiet imperdiet tellus at vestibulum. Aliquam lacinia euismod diam, sed lobortis ligula euismod eget. In sem enim, dignissim ut metus ut, lacinia.'
+                            .text
+                            .textStyle(context.captionStyle)
+                            .make()
+                            .p32()
+                      ],
+                    ),
+                  ),
                 ),
               ),
             )

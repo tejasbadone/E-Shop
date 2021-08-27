@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:velocity_x/velocity_x.dart';
 
 class Mytheme {
   static ThemeData lightTheme(BuildContext context) => ThemeData(
@@ -20,7 +19,7 @@ class Mytheme {
   static ThemeData darkTheme(BuildContext context) => ThemeData(
         brightness: Brightness.dark,
         fontFamily: GoogleFonts.poppins().fontFamily,
-        cardColor: Colors.black54,
+        cardColor: Color(0xff171717),
         canvasColor: darkColor,
         buttonColor: lightBluishColor,
         accentColor: Colors.white,
@@ -32,8 +31,9 @@ class Mytheme {
         ),
       );
 
-  static Color creamColor = Color(0xfff5f5f5);
-  static Color darkBluishColor = Color(0xff403b58);
-  static Color darkColor = Vx.gray900;
-  static Color lightBluishColor = Vx.indigo500;
+  static Color creamColor = Color(0xfff4f5fc);
+  static Color darkBluishColor = Color(0xff1a191c);
+  static Color darkColor = Color(0xff101010);
+  static Color lightBluishColor = Color(0xff236BFE);
+  static Color orange = Color(0xfff68a0a);
 }

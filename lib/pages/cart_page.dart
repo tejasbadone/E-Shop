@@ -31,7 +31,7 @@ class _CartTotal extends StatelessWidget {
   Widget build(BuildContext context) {
     final CartModel _cart = (VxState.store as MyStore).cart;
     return SizedBox(
-      height: 200,
+      height: 120,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [

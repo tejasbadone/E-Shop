@@ -32,6 +32,8 @@ dependencies:
   velocity_x: ^3.3.0
   http: ^0.13.3
   pay: ^1.0.5
+  flutter_switch: ^0.3.2
+  provider: ^6.0.0
 
 
 dev_dependencies:
