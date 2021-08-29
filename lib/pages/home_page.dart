@@ -8,8 +8,8 @@ import 'package:catelog_app/widgets/home_widgets/catelog_list.dart';
 import 'package:catelog_app/widgets/themes.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:velocity_x/velocity_x.dart';
+import 'package:http/http.dart' as http;
 
 class HomePage extends StatefulWidget {
   // const HomePage({Key? key}) : super(key: key);
@@ -19,6 +19,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final url = 'https://api.npoint.io/d80138a1422fb20c8d2a';
   @override
   void initState() {
     loadData();
@@ -29,8 +30,11 @@ class _HomePageState extends State<HomePage> {
     await Future.delayed(
       Duration(seconds: 1),
     );
-    final catelogJson =
-        await rootBundle.loadString('assets/files/catelog.json');
+    // final catelogJson =
+    //     await rootBundle.loadString('assets/files/catelog.json');
+
+    final response = await http.get(Uri.parse(url));
+    final catelogJson = response.body;
     final decodedData = jsonDecode(catelogJson);
     var productsData = decodedData['products'];
     CatelogModel.items = List.from(productsData)
