@@ -115,3 +115,10 @@ class MyApp extends StatelessWidget {
 // ),
 //   ],
 // );
+
+var brightness = MediaQuery.of(context).platformBrightness;
+bool isDarkMode = brightness == Brightness.dark;
+
+final value = MediaQuery.of(context).platformBrightness == Brightness.dark
+    ? 'true'
+    : 'false';

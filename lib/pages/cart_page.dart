@@ -10,12 +10,20 @@ class CartPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: 'Cart'.text.color(context.accentColor).make(),
+        // title: 'Cart'.text.color(context.accentColor).make(),
         backgroundColor: Colors.transparent,
       ),
       backgroundColor: context.canvasColor,
       body: Column(
         children: [
+          Text(
+            'Cart',
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              color: context.theme.accentColor,
+            ),
+            textScaleFactor: 2,
+          ),
           _CartListState().p32().expand(),
           Divider(),
           _CartTotal(),

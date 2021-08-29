@@ -1,6 +1,5 @@
 import 'package:catelog_app/models/catelog.dart';
 import 'package:catelog_app/widgets/home_widgets/add_to_cart.dart';
-import 'package:catelog_app/widgets/themes.dart';
 import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
 
@@ -17,16 +16,18 @@ class Details extends StatelessWidget {
       backgroundColor: context.canvasColor,
       bottomNavigationBar: Container(
         color: context.cardColor,
-        child: ButtonBar(
-          alignment: MainAxisAlignment.spaceBetween,
-          buttonPadding: EdgeInsets.zero,
-          children: [
-            '\$${catelog.price}'.text.bold.xl4.red500.make(),
-            AddToCart(
-              catelog: catelog,
-            ).wh(150, 50)
-          ],
-        ).p20(),
+        child: SafeArea(
+          child: ButtonBar(
+            alignment: MainAxisAlignment.spaceBetween,
+            buttonPadding: EdgeInsets.zero,
+            children: [
+              '\$${catelog.price}'.text.bold.xl4.red500.make(),
+              AddToCart(
+                catelog: catelog,
+              ).wh(150, 50)
+            ],
+          ).p20(),
+        ),
       ),
       body: SafeArea(
         bottom: false,
