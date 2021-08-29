@@ -1,12 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 class ThemeProvider extends ChangeNotifier {
-  ThemeMode themeMode = ThemeMode.light;
+  ThemeMode themeMode = ThemeMode.system;
 
-  bool get isLight => themeMode == ThemeMode.dark;
+  bool get isDarkMode {
+    if (themeMode == ThemeMode.system) {
+      final brightness = SchedulerBinding.instance.window.platformBrightness;
+      return brightness == Brightness.dark;
+    } else {
+      return themeMode == ThemeMode.dark;
+    }
+  }
 
   void toggleTheme(bool isOn) {
     themeMode = isOn ? ThemeMode.dark : ThemeMode.light;
@@ -22,7 +30,7 @@ class ChangeThemeButton extends StatelessWidget {
       width: 70,
       height: 45,
       toggleSize: 45.0,
-      value: themeProvider.isLight,
+      value: themeProvider.isDarkMode,
       borderRadius: 30.0,
       padding: 2.0,
       activeToggleColor: Color(0xFF6E40C9),
@@ -45,9 +53,9 @@ class ChangeThemeButton extends StatelessWidget {
         Icons.wb_sunny,
         color: Color(0xFFFFDF5D),
       ),
-      onToggle: (value) {
+      onToggle: (val) {
         final provider = Provider.of<ThemeProvider>(context, listen: false);
-        provider.toggleTheme(value);
+        provider.toggleTheme(val);
       },
     );
   }

@@ -24,7 +24,7 @@ class CartPage extends StatelessWidget {
             ),
             textScaleFactor: 2,
           ),
-          _CartListState().p32().expand(),
+          _CartListState().p16().expand(),
           Divider(),
           _CartTotal(),
         ],
