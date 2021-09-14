@@ -6,7 +6,7 @@ class ItemWidgets extends StatelessWidget {
 
   final Item item;
 
-  const ItemWidgets({Key key, @required this.item})
+  const ItemWidgets({Key? key, required this.item})
       : assert(item != null),
         super(key: key);
 
@@ -17,9 +17,9 @@ class ItemWidgets extends StatelessWidget {
         onTap: () {
           print('${item.name} pressed');
         },
-        leading: Image.network(item.image),
-        title: Text(item.name),
-        subtitle: Text(item.desc),
+        leading: Image.network(item.image!),
+        title: Text(item.name!),
+        subtitle: Text(item.desc!),
         trailing: Text(
           '\$ ${item.price}',
           style: TextStyle(

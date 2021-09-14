@@ -18,14 +18,14 @@ class MyApp extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: (CatelogModel.items != null && CatelogModel.items.isNotEmpty)
+        child: (CatelogModel.items != null && CatelogModel.items!.isNotEmpty)
             ? GridView.builder(
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
                     mainAxisSpacing: 16,
                     crossAxisSpacing: 16),
                 itemBuilder: (context, index) {
-                  final item = CatelogModel.items[index];
+                  final item = CatelogModel.items![index];
                   return Card(
                     clipBehavior: Clip.antiAlias,
                     shape: RoundedRectangleBorder(
@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
                     child: GridTile(
                       header: Container(
                         child: Text(
-                          item.name,
+                          item.name!,
                           style: TextStyle(color: Colors.white),
                         ),
                         padding: EdgeInsets.all(12),
@@ -42,7 +42,7 @@ class MyApp extends StatelessWidget {
                           color: Colors.deepPurple,
                         ),
                       ),
-                      child: Image.network(item.image),
+                      child: Image.network(item.image!),
                       footer: Container(
                         child: Text(
                           item.price.toString(),
@@ -54,7 +54,7 @@ class MyApp extends StatelessWidget {
                     ),
                   );
                 },
-                itemCount: CatelogModel.items.length,
+                itemCount: CatelogModel.items!.length,
               )
             : Center(
                 child: CircularProgressIndicator(),

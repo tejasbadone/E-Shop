@@ -51,7 +51,7 @@ class _HomePageState extends State<HomePage> {
       backgroundColor: context.canvasColor,
       floatingActionButton: VxBuilder(
         mutations: {AddMutation, RemoveMutation},
-        builder: (context, store, _) => FloatingActionButton(
+        builder: (context, dynamic store, _) => FloatingActionButton(
           onPressed: () => Navigator.pushNamed(context, MyRoutes.cartRoute),
           backgroundColor: context.theme.buttonColor,
           child: Icon(
@@ -61,7 +61,7 @@ class _HomePageState extends State<HomePage> {
         ).badge(
             color: Colors.white,
             size: 22,
-            count: _cart.items.length,
+            count: _cart!.items.length,
             textStyle: TextStyle(
               color: Mytheme.darkBluishColor,
               fontWeight: FontWeight.bold,
@@ -74,7 +74,7 @@ class _HomePageState extends State<HomePage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               CatelogHeader(),
-              if (CatelogModel.items != null && CatelogModel.items.isNotEmpty)
+              if (CatelogModel.items != null && CatelogModel.items!.isNotEmpty)
                 CatelogList().py16().expand()
               else
                 Expanded(

@@ -6,7 +6,7 @@ import 'package:velocity_x/velocity_x.dart';
 class Details extends StatelessWidget {
   final Item catelog;
 
-  const Details({Key key, @required this.catelog})
+  const Details({Key? key, required this.catelog})
       : assert(catelog != null),
         super(key: key);
   @override
@@ -35,7 +35,7 @@ class Details extends StatelessWidget {
           children: [
             Hero(
               tag: Key(catelog.id.toString()),
-              child: Image.network(catelog.image),
+              child: Image.network(catelog.image!),
             ).h32(context),
             Expanded(
               child: VxArc(
@@ -49,18 +49,18 @@ class Details extends StatelessWidget {
                   child: SingleChildScrollView(
                     child: Column(
                       children: [
-                        catelog.name.text.xl4
+                        catelog.name!.text.xl4
                             .color(context.accentColor)
                             .bold
                             .make(),
-                        catelog.desc.text
-                            .textStyle(context.captionStyle)
+                        catelog.desc!.text
+                            .textStyle(context.captionStyle!)
                             .xl
                             .make(),
                         10.heightBox,
                         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse augue ipsum, auctor eget velit eu, congue gravida metus. Aenean scelerisque blandit turpis, eget vehicula tortor fringilla ac. Sed imperdiet imperdiet tellus at vestibulum. Aliquam lacinia euismod diam, sed lobortis ligula euismod eget. In sem enim, dignissim ut metus ut, lacinia.'
                             .text
-                            .textStyle(context.captionStyle)
+                            .textStyle(context.captionStyle!)
                             .make()
                             .p32()
                       ],
