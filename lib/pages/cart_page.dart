@@ -37,17 +37,17 @@ class _CartTotal extends StatelessWidget {
   final _paymentItems = <PaymentItem>[];
   @override
   Widget build(BuildContext context) {
-    final CartModel _cart = (VxState.store as MyStore).cart;
+    final CartModel? _cart = (VxState.store as MyStore).cart;
     return SizedBox(
       height: 120,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           VxBuilder(
-              builder: (context, store, _) {
+              builder: (context, dynamic store, _) {
                 _paymentItems.add(
                   PaymentItem(
-                      amount: _cart.totalPrice.toString(),
+                      amount: _cart!.totalPrice.toString(),
                       label: 'Total',
                       status: PaymentItemStatus.final_price),
                 );
@@ -116,7 +116,7 @@ class _CartListState extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     VxState.watch(context, on: [RemoveMutation]);
-    final CartModel _cart = (VxState.store as MyStore).cart;
+    final CartModel _cart = (VxState.store as MyStore).cart!;
     return _cart.items.isEmpty
         ? 'Nothing to show'.text.xl3.makeCentered()
         : ListView.builder(
@@ -126,7 +126,7 @@ class _CartListState extends StatelessWidget {
               trailing: IconButton(
                   icon: Icon(Icons.remove_circle_outline),
                   onPressed: () => RemoveMutation(_cart.items[index])),
-              title: _cart.items[index].name.text.make(),
+              title: _cart.items[index].name!.text.make(),
             ),
           );
   }

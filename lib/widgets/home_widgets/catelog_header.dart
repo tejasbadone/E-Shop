@@ -19,7 +19,7 @@ class _CatelogHeaderState extends State<CatelogHeader> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              'Catalog App',
+              'E - Shop',
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 color: context.theme.accentColor,

@@ -11,9 +11,9 @@ class CatelogList extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView.builder(
         shrinkWrap: true,
-        itemCount: CatelogModel.items.length,
+        itemCount: CatelogModel.items!.length,
         itemBuilder: (context, index) {
-          final catelog = CatelogModel.items[index];
+          final catelog = CatelogModel.items![index];
           return InkWell(
             onTap: () => Navigator.push(
               context,
@@ -32,7 +32,7 @@ class CatelogList extends StatelessWidget {
 class CatelogItem extends StatelessWidget {
   final Item catelog;
 
-  const CatelogItem({Key key, this.catelog})
+  const CatelogItem({Key? key, required this.catelog})
       : assert(catelog != null),
         super(key: key);
 
@@ -50,8 +50,8 @@ class CatelogItem extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            catelog.name.text.lg.color(context.accentColor).bold.make(),
-            catelog.desc.text.textStyle(context.captionStyle).make(),
+            catelog.name!.text.lg.color(context.accentColor).bold.make(),
+            catelog.desc!.text.textStyle(context.captionStyle!).make(),
             10.heightBox,
             ButtonBar(
               alignment: MainAxisAlignment.spaceBetween,
